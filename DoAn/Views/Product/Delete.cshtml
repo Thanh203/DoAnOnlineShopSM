@@ -1,0 +1,283 @@
+﻿@model DoAn.Models.EF.Product
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_MasterLayoutAdmin.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="~/Content/stproduct.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+</head>
+
+
+    
+<body>
+    <h3>Bạn có chắc chắn muốn xóa sản phẩm này không ?</h3>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-actions">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+    <hr />
+    <div>
+        <div class="product-detail">
+            <div class="product_info_r">
+                <div class="product_wrap_r container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+                            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img class="d-block w-100"
+                                             src="@Html.DisplayFor(model => model.Image)"
+                                             alt="First slide">
+                                    </div>
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                                   data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                                   data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                                <div id="thumbCarousel">
+                                    <div data-target="#productCarousel" data-slide-to="0" class="thumb">
+                                        <img src="https://product.hstatic.net/1000075078/product/1653291204_hi-tea-vai_0e8376fb3eec4127ba33aa47b8d2c723.jpg">
+                                    </div>
+                                    <div data-target="#productCarousel" data-slide-to="1" class="thumb active">
+                                        <img src="https://product.hstatic.net/1000075078/product/1650529462_hi-tea-vai-1_5545934c15af44cebfa0f792f68b3ec9.jpg">
+                                    </div>
+                                    <div data-target="#productCarousel" data-slide-to="2" class="thumb">
+                                        <img src="https://product.hstatic.net/1000075078/product/1650529463_hi-tea-vai_c50f87c891c141ffa1e2cba41f17cf45.jpg">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+                            <div>
+                                <div class="inforr_product">
+                                    <div>
+                                        <p class="info_product_title">@Html.DisplayFor(model => model.Name)</p>
+                                        <div class="info_product_price">
+                                            <span class="price">@Html.DisplayFor(model => model.Price)</span>
+                                        </div>
+                                    </div>
+                                    <div class="option_sizes">
+                                        <p class="option_title">Chọn size (bắt buộc)</p>
+                                        <div class="product_options">
+                                            <div id="ax_1042194598" class="opt_size">
+                                                <div data-filter="Nhỏ" data-barcode="10010165"
+                                                     data-sku="6335804daf52df0019f85b59"
+                                                     class="product__info__item__list__item icons_0 ">
+                                                    <svg viewBox="0 0 13 16" xmlns="http://www.w3.org/2000/svg">
+                                                        <path class="shape"
+                                                              d="M11.6511 1.68763H10.3529V0.421907C10.3529 0.194726 10.1582 0 9.93104 0H2.17444C1.94726 0 1.75254 0.194726 1.75254 0.421907V1.65517H0.454361C0.194726 1.68763 0 1.88235 0 2.10953V4.18661C0 4.41379 0.194726 4.60852 0.421907 4.60852H1.33063L1.72008 8.8925L1.78499 9.76876L2.30426 15.6105C2.33671 15.8377 2.49899 16 2.72617 16H9.28195C9.50913 16 9.70385 15.8377 9.70385 15.6105L10.2231 9.76876L10.288 8.8925L10.6775 4.60852H11.5862C11.8134 4.60852 12.0081 4.41379 12.0081 4.18661V2.10953C12.073 1.88235 11.8783 1.68763 11.6511 1.68763ZM2.56389 8.40568H3.50507C3.47262 8.56795 3.47262 8.73022 3.47262 8.8925C3.47262 9.02231 3.47262 9.15213 3.50507 9.28195H2.66126L2.6288 8.92495L2.56389 8.40568ZM9.47667 8.92495L9.44422 9.28195H8.56795C8.60041 9.15213 8.60041 9.02231 8.60041 8.8925C8.60041 8.73022 8.56795 8.56795 8.56795 8.40568H9.50913L9.47667 8.92495ZM7.72414 8.8925C7.72414 9.83367 6.97769 10.5801 6.03651 10.5801C5.09534 10.5801 4.34888 9.83367 4.34888 8.8925C4.34888 7.95132 5.09534 7.20487 6.03651 7.20487C6.97769 7.20487 7.72414 7.95132 7.72414 8.8925ZM8.92495 15.1562H3.18053L2.72617 10.1582H3.82961C4.28398 10.9371 5.09534 11.4564 6.03651 11.4564C6.97769 11.4564 7.8215 10.9371 8.24341 10.1582H9.34686L8.92495 15.1562ZM9.60649 7.52941H8.21095C7.75659 6.81542 6.94523 6.3286 6.03651 6.3286C5.12779 6.3286 4.31643 6.81542 3.86207 7.52941H2.49899L2.23935 4.60852H9.86613L9.60649 7.52941ZM11.1968 3.73225H10.3205H1.75254H0.876268V2.56389H2.17444H2.2069H2.23935H8.27586C8.50304 2.56389 8.69777 2.36917 8.69777 2.14199C8.69777 1.91481 8.50304 1.72008 8.27586 1.72008H2.6288V0.876268H9.47667V2.10953C9.47667 2.33671 9.6714 2.53144 9.89858 2.53144H11.1968V3.73225Z"></path>
+                                                    </svg>
+                                                    <div class="circle">Nhỏ + 0 đ</div>
+                                                </div>
+                                                <div data-filter="Vừa" data-barcode="10010166"
+                                                     data-sku="6335804daf52df0019f85b59"
+                                                     class="product__info__item__list__item icons_1 ">
+                                                    <svg viewBox="0 0 13 16" xmlns="http://www.w3.org/2000/svg">
+                                                        <path class="shape "
+                                                              d="M11.6511 1.68763H10.3529V0.421907C10.3529 0.194726 10.1582 0 9.93104 0H2.17444C1.94726 0 1.75254 0.194726 1.75254 0.421907V1.65517H0.454361C0.194726 1.68763 0 1.88235 0 2.10953V4.18661C0 4.41379 0.194726 4.60852 0.421907 4.60852H1.33063L1.72008 8.8925L1.78499 9.76876L2.30426 15.6105C2.33671 15.8377 2.49899 16 2.72617 16H9.28195C9.50913 16 9.70385 15.8377 9.70385 15.6105L10.2231 9.76876L10.288 8.8925L10.6775 4.60852H11.5862C11.8134 4.60852 12.0081 4.41379 12.0081 4.18661V2.10953C12.073 1.88235 11.8783 1.68763 11.6511 1.68763ZM2.56389 8.40568H3.50507C3.47262 8.56795 3.47262 8.73022 3.47262 8.8925C3.47262 9.02231 3.47262 9.15213 3.50507 9.28195H2.66126L2.6288 8.92495L2.56389 8.40568ZM9.47667 8.92495L9.44422 9.28195H8.56795C8.60041 9.15213 8.60041 9.02231 8.60041 8.8925C8.60041 8.73022 8.56795 8.56795 8.56795 8.40568H9.50913L9.47667 8.92495ZM7.72414 8.8925C7.72414 9.83367 6.97769 10.5801 6.03651 10.5801C5.09534 10.5801 4.34888 9.83367 4.34888 8.8925C4.34888 7.95132 5.09534 7.20487 6.03651 7.20487C6.97769 7.20487 7.72414 7.95132 7.72414 8.8925ZM8.92495 15.1562H3.18053L2.72617 10.1582H3.82961C4.28398 10.9371 5.09534 11.4564 6.03651 11.4564C6.97769 11.4564 7.8215 10.9371 8.24341 10.1582H9.34686L8.92495 15.1562ZM9.60649 7.52941H8.21095C7.75659 6.81542 6.94523 6.3286 6.03651 6.3286C5.12779 6.3286 4.31643 6.81542 3.86207 7.52941H2.49899L2.23935 4.60852H9.86613L9.60649 7.52941ZM11.1968 3.73225H10.3205H1.75254H0.876268V2.56389H2.17444H2.2069H2.23935H8.27586C8.50304 2.56389 8.69777 2.36917 8.69777 2.14199C8.69777 1.91481 8.50304 1.72008 8.27586 1.72008H2.6288V0.876268H9.47667V2.10953C9.47667 2.33671 9.6714 2.53144 9.89858 2.53144H11.1968V3.73225Z"></path>
+                                                    </svg>
+                                                    <div class="circle">Vừa + 6.000 đ</div>
+                                                </div>
+                                                <div data-filter="Lớn" data-barcode="10010167"
+                                                     data-sku="6335804daf52df0019f85b59"
+                                                     class="product__info__item__list__item icons_2 ">
+                                                    <svg viewBox="0 0 13 16" xmlns="http://www.w3.org/2000/svg">
+                                                        <path class="shape "
+                                                              d="M11.6511 1.68763H10.3529V0.421907C10.3529 0.194726 10.1582 0 9.93104 0H2.17444C1.94726 0 1.75254 0.194726 1.75254 0.421907V1.65517H0.454361C0.194726 1.68763 0 1.88235 0 2.10953V4.18661C0 4.41379 0.194726 4.60852 0.421907 4.60852H1.33063L1.72008 8.8925L1.78499 9.76876L2.30426 15.6105C2.33671 15.8377 2.49899 16 2.72617 16H9.28195C9.50913 16 9.70385 15.8377 9.70385 15.6105L10.2231 9.76876L10.288 8.8925L10.6775 4.60852H11.5862C11.8134 4.60852 12.0081 4.41379 12.0081 4.18661V2.10953C12.073 1.88235 11.8783 1.68763 11.6511 1.68763ZM2.56389 8.40568H3.50507C3.47262 8.56795 3.47262 8.73022 3.47262 8.8925C3.47262 9.02231 3.47262 9.15213 3.50507 9.28195H2.66126L2.6288 8.92495L2.56389 8.40568ZM9.47667 8.92495L9.44422 9.28195H8.56795C8.60041 9.15213 8.60041 9.02231 8.60041 8.8925C8.60041 8.73022 8.56795 8.56795 8.56795 8.40568H9.50913L9.47667 8.92495ZM7.72414 8.8925C7.72414 9.83367 6.97769 10.5801 6.03651 10.5801C5.09534 10.5801 4.34888 9.83367 4.34888 8.8925C4.34888 7.95132 5.09534 7.20487 6.03651 7.20487C6.97769 7.20487 7.72414 7.95132 7.72414 8.8925ZM8.92495 15.1562H3.18053L2.72617 10.1582H3.82961C4.28398 10.9371 5.09534 11.4564 6.03651 11.4564C6.97769 11.4564 7.8215 10.9371 8.24341 10.1582H9.34686L8.92495 15.1562ZM9.60649 7.52941H8.21095C7.75659 6.81542 6.94523 6.3286 6.03651 6.3286C5.12779 6.3286 4.31643 6.81542 3.86207 7.52941H2.49899L2.23935 4.60852H9.86613L9.60649 7.52941ZM11.1968 3.73225H10.3205H1.75254H0.876268V2.56389H2.17444H2.2069H2.23935H8.27586C8.50304 2.56389 8.69777 2.36917 8.69777 2.14199C8.69777 1.91481 8.50304 1.72008 8.27586 1.72008H2.6288V0.876268H9.47667V2.10953C9.47667 2.33671 9.6714 2.53144 9.89858 2.53144H11.1968V3.73225Z"></path>
+                                                    </svg>
+                                                    <div class="circle">Lớn + 10.000 đ</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="option_topping">
+                                        <p class="option_title">Topping</p>
+                                        <div class="product_options">
+                                            <label class="option_item">
+                                                <div class="option_inner tch_top">
+                                                    <div class="name">Trân châu trắng + 10.000 đ</div>
+                                                </div>
+                                            </label><label class="option_item">
+                                                <div class="option_inner tch_top">
+                                                    <div class="name">Đào Miếng + 10.000 đ</div>
+                                                </div>
+                                            </label><label class="option_item">
+                                                <div class="option_inner tch_top">
+                                                    <div class="name">Trái Vải + 10.000 đ</div>
+                                                </div>
+                                            </label><label class="option_item">
+                                                <div class="option_inner tch_top">
+                                                    <div class="name">Hạt Sen + 10.000 đ</div>
+                                                </div>
+                                            </label><label class="option_item">
+                                                <div class="option_inner tch_top">
+                                                    <div class="name">Trái Nhãn + 10.000 đ</div>
+                                                </div>
+                                            </label><label class="option_item">
+                                                <div class="option_inner tch_top">
+                                                    <div class="name">Nha Đam + 10.000 đ</div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="product_to_cart">
+                                        <ul class="order_method">
+                                            <li class="x1">
+                                                <a>
+                                                    <svg width="21" height="21" viewBox="0 0 21 21"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M14 0C14.5523 0 15 0.447715 15 1V1.999L20 2V8L17.98 7.999L20.7467 15.5953C20.9105 16.032 21 16.5051 21 16.999C21 19.2082 19.2091 20.999 17 20.999C15.1368 20.999 13.5711 19.7251 13.1265 18.0008L8.87379 18.0008C8.42948 19.7256 6.86357 21 5 21C3.05513 21 1.43445 19.612 1.07453 17.7725C0.435576 17.439 0 16.7704 0 16V3C0 2.44772 0.447715 2 1 2H8C8.55228 2 9 2.44772 9 3V11C9 11.5128 9.38604 11.9355 9.88338 11.9933L10 12H12C12.5128 12 12.9355 11.614 12.9933 11.1166L13 11V2H10V0H14ZM5 15C3.89543 15 3 15.8954 3 17C3 18.1046 3.89543 19 5 19C6.10457 19 7 18.1046 7 17C7 15.8954 6.10457 15 5 15ZM17 14.999C15.8954 14.999 15 15.8944 15 16.999C15 18.1036 15.8954 18.999 17 18.999C18.1046 18.999 19 18.1036 19 16.999C19 15.8944 18.1046 14.999 17 14.999ZM15.852 7.999H15V11C15 12.6569 13.6569 14 12 14H10C8.69412 14 7.58312 13.1656 7.17102 12.0009L1.99994 12V14.3542C2.73289 13.5238 3.80528 13 5 13C6.86393 13 8.43009 14.2749 8.87405 16.0003H13.1257C13.5693 14.2744 15.1357 12.999 17 12.999C17.2373 12.999 17.4697 13.0197 17.6957 13.0593L15.852 7.999ZM7 7H2V10H7V7ZM18 4H15V6H18V4ZM7 4H2V5H7V4Z"
+                                                              fill="white" fill-opacity="0.6"></path>
+                                                    </svg>
+                                                    <span>Đặt giao tận nơi</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-info">
+            <div class="product_info_wrap container">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 product_content_bottom">
+                    <hr class="hidden-xs">
+                    <div class="st">
+                        <h1 class="related_product_title">Mô tả sản phẩm</h1>
+                        <p>
+                            @Html.DisplayFor(model => model.Detail)
+                        </p>
+                    </div>
+                    <hr>
+                    <div class="product-related">
+                        <h2 class="related_product_title">Sản phẩm liên quan</h2>
+                        <div class="list_product_related buy_combo">
+                            <div class="menu_item">
+                                <div class="menu_item_image">
+                                    <a>
+                                        <img class=" lazyloaded"
+                                             src="https://product.hstatic.net/1000075078/product/1665655318_hi-tea-quyt_815bf4bbd3214e828212efcb8afa4cf3.jpg"
+                                             alt="hi tea da tuyet yuzu vai">
+                                    </a>
+                                    <ul class="labels">
+                                    </ul>
+                                </div>
+                                <div class="menu_item_info">
+                                    <h3>
+                                        <a title="Hi-Tea Đá Tuyết Yuzu Vải">
+                                            Hi-Tea Đá
+                                            Tuyết Yuzu Vải
+                                        </a>
+                                    </h3>
+                                    <div class="price_product_item">55.000 đ</div>
+                                </div>
+                            </div>
+                            <div class="menu_item">
+                                <div class="menu_item_image">
+                                    <a>
+                                        <img class=" lazyloaded"
+                                             src="https://product.hstatic.net/1000075078/product/1665655318_hi-tea-quyt_815bf4bbd3214e828212efcb8afa4cf3.jpg"
+                                             alt="hi tea da tuyet yuzu vai">
+                                    </a>
+                                    <ul class="labels">
+                                    </ul>
+                                </div>
+                                <div class="menu_item_info">
+                                    <h3>
+                                        <a title="Hi-Tea Đá Tuyết Yuzu Vải">
+                                            Hi-Tea Đá
+                                            Tuyết Yuzu Vải
+                                        </a>
+                                    </h3>
+                                    <div class="price_product_item">55.000 đ</div>
+                                </div>
+                            </div>
+                            <div class="menu_item">
+                                <div class="menu_item_image">
+                                    <a>
+                                        <img class=" lazyloaded"
+                                             src="https://product.hstatic.net/1000075078/product/1665655318_hi-tea-quyt_815bf4bbd3214e828212efcb8afa4cf3.jpg"
+                                             alt="hi tea da tuyet yuzu vai">
+                                    </a>
+                                    <ul class="labels">
+                                    </ul>
+                                </div>
+                                <div class="menu_item_info">
+                                    <h3>
+                                        <a title="Hi-Tea Đá Tuyết Yuzu Vải">
+                                            Hi-Tea Đá
+                                            Tuyết Yuzu Vải
+                                        </a>
+                                    </h3>
+                                    <div class="price_product_item">55.000 đ</div>
+                                </div>
+                            </div>
+                            <div class="menu_item">
+                                <div class="menu_item_image">
+                                    <a>
+                                        <img class=" lazyloaded"
+                                             src="https://product.hstatic.net/1000075078/product/1665655318_hi-tea-quyt_815bf4bbd3214e828212efcb8afa4cf3.jpg"
+                                             alt="hi tea da tuyet yuzu vai">
+                                    </a>
+                                    <ul class="labels">
+                                    </ul>
+                                </div>
+                                <div class="menu_item_info">
+                                    <h3>
+                                        <a title="Hi-Tea Đá Tuyết Yuzu Vải">
+                                            Hi-Tea Đá
+                                            Tuyết Yuzu Vải
+                                        </a>
+                                    </h3>
+                                    <div class="price_product_item">55.000 đ</div>
+                                </div>
+                            </div>
+                            <div class="menu_item">
+                                <div class="menu_item_image">
+                                    <a>
+                                        <img class=" lazyloaded"
+                                             src="https://product.hstatic.net/1000075078/product/1665655318_hi-tea-quyt_815bf4bbd3214e828212efcb8afa4cf3.jpg"
+                                             alt="hi tea da tuyet yuzu vai">
+                                    </a>
+                                    <ul class="labels">
+                                    </ul>
+                                </div>
+                                <div class="menu_item_info">
+                                    <h3>
+                                        <a title="Hi-Tea Đá Tuyết Yuzu Vải">
+                                            Hi-Tea Đá
+                                            Tuyết Yuzu Vải
+                                        </a>
+                                    </h3>
+                                    <div class="price_product_item">55.000 đ</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+    
+

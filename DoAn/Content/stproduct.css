@@ -1,0 +1,276 @@
+﻿
+
+body {
+    margin: 30px 0;
+}
+.st {
+    font-size: 20px;
+}
+.container {
+    width: 1200px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.breadcrumb {
+    background: transparent !important;
+    margin-top: 20px;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    font-weight: 700;
+    list-style: none;
+    border-radius: 0;
+    font-size: 13px;
+}
+
+    .breadcrumb > li {
+        display: inline-block;
+        cursor: pointer;
+    }
+
+        .breadcrumb > li::before {
+            content: "/\00a0";
+            padding: 0 5px;
+            color: #ccc;
+        }
+
+        .breadcrumb > li:first-child::before {
+            display: none;
+        }
+
+.product_info_r .product_wrap_r .option_sizes .product_options .opt_size .product__info__item__list__item.icons_0 svg {
+    width: 12px;
+    height: 16px;
+    margin-right: 5px;
+}
+
+.product_info_r .product_wrap_r .option_sizes .product_options .opt_size .product__info__item__list__item.icons_1 svg {
+    width: 15px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.product_info_r .product_wrap_r .option_sizes .product_options .opt_size .product__info__item__list__item.icons_2 svg {
+    width: 19px;
+    height: 24px;
+    margin-right: 5px;
+}
+
+.product_info_r .product_wrap_r .inforr_product .info_product_title {
+    font-size: 26px;
+    font-family: "SF Pro Display", sans-serif;
+    margin-bottom: 18px;
+    color: #000;
+}
+
+.product_info_r .product_wrap_r .inforr_product .info_product_price {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    margin-top: 16px;
+}
+
+    .product_info_r .product_wrap_r .inforr_product .info_product_price .price {
+        line-height: 0.75;
+        font-family: "SF Pro Display", sans-serif;
+        font-size: 26px;
+        color: #E57905;
+        font-weight: 600;
+        margin-right: 37px;
+    }
+
+.product_info_r .product_wrap_r .option_sizes .option_title {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+.product_info_r .product_wrap_r .option_sizes .product_options {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    .product_info_r .product_wrap_r .option_sizes .product_options .opt_size {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+        .product_info_r .product_wrap_r .option_sizes .product_options .opt_size .product__info__item__list__item {
+            transition: all 0.3s;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            padding: 0 20px;
+            border-radius: 5px;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            height: 40px;
+            line-height: 1;
+            font-weight: 400;
+            margin-right: 16px;
+            font-size: 14px;
+            color: #666666;
+        }
+
+.product_info_r .product_wrap_r .option_topping .option_title {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    margin-top: 23px;
+    margin-bottom: 0;
+}
+
+.product_info_r .product_wrap_r .option_topping .product_options {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    .product_info_r .product_wrap_r .option_topping .product_options .option_item {
+        display: block;
+        position: relative;
+        margin: 10px 20px 10px 0;
+    }
+
+        .product_info_r .product_wrap_r .option_topping .product_options .option_item .option_inner {
+            background: #fff;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            color: #666666;
+            height: 40px;
+            padding: 0 15px;
+            display: inline-flex;
+            align-items: center;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+
+        .product_info_r .product_wrap_r .option_topping .product_options .option_item .checkbox {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            opacity: 0;
+        }
+
+.order_method {
+    padding: 0;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+    .order_method li {
+        border-radius: 8px;
+        padding: 12px 0;
+        text-align: center;
+        flex: 0 0 calc(50% - 8px);
+    }
+
+        .order_method li.x1 {
+            list-style: none;
+            background: #E57905;
+            margin-top: 15px;
+        }
+
+            .order_method li.x1 a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 16px;
+                font-weight: 600;
+                color: #FFFFFF;
+            }
+
+#thumbCarousel {
+    max-width: 650px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 10px 0;
+}
+
+    #thumbCarousel .thumb {
+        float: left;
+        margin-right: 10px;
+        background: #fff;
+        border-radius: 8px;
+    }
+
+        #thumbCarousel .thumb img {
+            width: 75px;
+            height: 75px;
+            opacity: 0.5;
+            border-radius: 8px;
+        }
+
+.order_method li.x1 a span {
+    margin-left: 11px;
+}
+
+.product-related .buy_combo, #product-buy-combo .buy_combo {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -24px -30px;
+}
+
+.menu_item .menu_item_image {
+    position: relative;
+}
+
+.product-related .buy_combo .menu_item {
+    flex: 0 0 calc(16.667% - 30px);
+    margin: 0 15px 40px;
+    min-height: 145px;
+}
+
+.menu_item .menu_item_image > a > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.menu_item .menu_item_image > a {
+    border-radius: 10px;
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    padding-top: 100%;
+    position: relative;
+    box-shadow: 0 0 13px 0 #00000040;
+}
+
+.menu_item .labels {
+    position: absolute;
+    left: 14px;
+    top: 12px;
+    padding-left: 0;
+    display: flex;
+}
+
+.menu_item .menu_item_info {
+    padding: 12px 0 0;
+}
+
+    .menu_item .menu_item_info h3 {
+        margin-top: 0;
+        margin-bottom: 4px;
+        font-weight: 600;
+        color: #191919;
+        font-size: 16px;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+    }
+
+.menu_item .price_product_item {
+    font-size: 14px;
+    color: #00000099;
+    margin-bottom: 10px;
+}

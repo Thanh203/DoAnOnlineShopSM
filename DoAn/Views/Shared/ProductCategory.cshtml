@@ -1,0 +1,13 @@
+﻿
+@model List<DoAn.Models.EF.ProductCategory>
+<div class="category-list">
+    <ul>
+        <h3>Danh mục sản phẩm</h3>
+        @foreach (var item in Model)
+        {
+            <li><a href="/san-pham/@item.MetaTitle-@item.ID">@item.Name</a></li>
+        }
+
+    </ul>
+</div>
+

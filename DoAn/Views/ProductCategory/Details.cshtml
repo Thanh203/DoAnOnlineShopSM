@@ -1,0 +1,43 @@
+﻿@model DoAn.Models.EF.ProductCategory
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MasterLayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Thông tin chi tiết Title</h4>
+    <hr />
+    <div class="form-group">
+        @Html.DisplayNameFor(model => model.Name)
+        <div class="col-md-12">
+            @Html.DisplayFor(model => model.Name)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.DisplayNameFor(model => model.MetaTitle)
+        <div class="col-md-12">
+            @Html.DisplayFor(model => model.MetaTitle)
+        </div> 
+    </div>
+
+    <div class="form-group">
+        @Html.DisplayNameFor(model => model.CreatedBy)
+        <div class="col-md-12">
+            @Html.DisplayFor(model => model.CreatedBy)
+        </div>  
+    </div>
+    <div class="form-group">
+        @Html.DisplayNameFor(model => model.Status)
+        <div class="col-md-12">
+            @Html.DisplayFor(model => model.Status)
+        </div>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new {@class = "btn btn-success"}) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
