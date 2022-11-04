@@ -145,6 +145,7 @@
     <Compile Include="Areas\Area\RouteConfig.cs" />
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\Encryptor.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CustomerProductsController.cs" />
     <Compile Include="Controllers\HomeUserController.cs" />
     <Compile Include="Controllers\ProductCategoryController.cs" />
@@ -157,6 +158,7 @@
     <Compile Include="Models\Dao\ProductCategoryDao.cs" />
     <Compile Include="Models\Dao\UserDao.cs" />
     <Compile Include="Models\EF\About.cs" />
+    <Compile Include="Models\EF\CartItem.cs" />
     <Compile Include="Models\EF\Category.cs" />
     <Compile Include="Models\EF\Contact.cs" />
     <Compile Include="Models\EF\Content.cs" />
@@ -2123,6 +2125,7 @@
     <Content Include="Views\ProductCategory\Delete.cshtml" />
     <Content Include="Views\CustomerProducts\Index.cshtml" />
     <Content Include="Views\CustomerProducts\Details.cshtml" />
+    <Content Include="Views\Cart\GetCartInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include=".vs\DoAn\v16\" />
