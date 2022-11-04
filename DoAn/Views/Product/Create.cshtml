@@ -5,9 +5,10 @@
     Layout = "~/Views/Shared/_MasterLayoutAdmin.cshtml";
 }
 
-@using (Html.BeginForm("Create", "Products", FormMethod.Post, new {@enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Create", "Product", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+
 {
-@Html.AntiForgeryToken()
+    @Html.AntiForgeryToken()
 
 <div class="form-horizontal">
     <h4>Tạo sản phẩm </h4>
@@ -37,17 +38,16 @@
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(model2 => model2.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.CategoryID, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-12">
-            @Html.DropDownList("Name", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model2 => model2.Name,"", new { @class = "text-danger" })
-
+            @Html.EditorFor(model => model.CategoryID, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
         @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-12">
-            @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })
+            <input type="file" name="Image" />
             @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -99,9 +99,10 @@
             <input type="submit" value="Create" class="btn btn-success" />
         </div>
     </div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
 </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

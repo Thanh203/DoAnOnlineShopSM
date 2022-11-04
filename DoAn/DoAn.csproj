@@ -1892,7 +1892,10 @@
     <Content Include="Images\AnhHome.jpg" />
     <Content Include="Images\avatar.jpg" />
     <Content Include="Images\cafeblogs.jpg" />
+    <Content Include="Images\CaPheVN\CPDD01.jpg" />
+    <Content Include="Images\CaPheVN\CPDN01.jpg" />
     <Content Include="Images\CaPheVN\CPSD01.jpg" />
+    <Content Include="Images\CaPheVN\CPSN01.jpg" />
     <Content Include="Images\Logo.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

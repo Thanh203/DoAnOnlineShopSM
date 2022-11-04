@@ -6,6 +6,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.IO;
+
 
 namespace DoAn.Controllers
 {
@@ -26,18 +28,29 @@ namespace DoAn.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(Product product)
+        [ValidateAntiForgeryToken]
+
+        public ActionResult Create(Product product, HttpPostedFileBase Image)
         {
-            try
+            if (ModelState.IsValid)
             {
+                if (Image != null)
+                {
+                    //Lấy tên file của hình được up lên
+                    var fileName = Path.GetFileName(Image.FileName);
+                    //Tạo đường dẫn tới file
+                    var path = Path.Combine(Server.MapPath("~/Images"), fileName);
+                    //Lưu tên
+                    product.Image = fileName;
+                    //Save vào Images Folder
+                    Image.SaveAs(path);
+                }
                 db.Products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return Content("Lỗi tạo mới sản phẩm");
-            }
+            ViewBag.Category = new SelectList(db.ProductCategories, "ID", "Name",product.CategoryID);
+            return View(product);
         }
         public ActionResult Details(int id)
         {
@@ -52,11 +65,38 @@ namespace DoAn.Controllers
             return View(product);
         }
         [HttpPost]
-        public ActionResult Edit(int id, Product product)
+        public ActionResult Edit(Product product, HttpPostedFileBase Image)
         {
-            db.Entry(product).State = System.Data.Entity.EntityState.Modified;
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                var productDB = db.Products.FirstOrDefault(p => p.ID == product.ID);
+                if (productDB != null)
+                {
+                    productDB.Name = product.Name;
+                    productDB.Code = product.Code;
+                    productDB.MetaTitle = product.MetaTitle;
+                    productDB.Price = product.Price;
+                    productDB.Quantity = product.Quantity;
+                    if (Image != null)
+                    {
+                        //Lấy tên file của hình được up lên
+                        var fileName = Path.GetFileName(Image.FileName);
+                        //Tạo đường dẫn tới file
+                        var path = Path.Combine(Server.MapPath("~/Images"),
+                       fileName);
+                        //Lưu tên
+                        productDB.Image = fileName;
+                        //Save vào Images Folder
+                        Image.SaveAs(path);
+                    }
+                    productDB.CategoryID = product.CategoryID;
+                }
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.Category = new SelectList(db.Categories, "IDCate", "NameCate",product.CategoryID);
+            return View(product);
+
         }
         [HttpGet]
         public ActionResult Delete(int? id)
