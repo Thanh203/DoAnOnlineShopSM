@@ -145,6 +145,7 @@
     <Compile Include="Areas\Area\RouteConfig.cs" />
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\Encryptor.cs" />
+    <Compile Include="Controllers\CustomerProductsController.cs" />
     <Compile Include="Controllers\HomeUserController.cs" />
     <Compile Include="Controllers\ProductCategoryController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -2120,6 +2121,8 @@
     <Content Include="Views\ProductCategory\Details.cshtml" />
     <Content Include="Views\ProductCategory\Edit.cshtml" />
     <Content Include="Views\ProductCategory\Delete.cshtml" />
+    <Content Include="Views\CustomerProducts\Index.cshtml" />
+    <Content Include="Views\CustomerProducts\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include=".vs\DoAn\v16\" />

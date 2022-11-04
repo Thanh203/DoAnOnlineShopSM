@@ -1,0 +1,68 @@
+﻿@model IEnumerable<DoAn.Models.EF.Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="./fontawesome-free-6.2.0-web/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap&subset=vietnamese" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="row">
+        @foreach (var sanpham in Model)
+        {
+            <div class="prd">
+                <a class="home-product-item" href="#">
+                    <div class="home-product-item__img">
+                        <img src="~/Images/CaPheVN/@sanpham.Image" style="width:240px;height:250px;" />
+                    </div>
+                    <h4 class="home-product-item__name">@sanpham.Name</h4>
+                    <div class="home-product-item__price">
+                        <span class="home-product-item__price-current">@sanpham.Price VND</span>
+
+                    </div>
+
+                    <div class="home-product-item__action">
+                        <span class="home-product-item__like home-product-item__like--liked">
+                            <i class="home-product-item__like-icon-empty far fa-heart"></i>
+                            <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                        </span>
+                        <div class="home-product-item__rating">
+                            <i class="home-product-item__star--gold fas fa-star"></i>
+                            <i class="home-product-item__star--gold fas fa-star"></i>
+                            <i class="home-product-item__star--gold fas fa-star"></i>
+                            <i class="home-product-item__star--gold fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="home-product-item__sold">5</span>
+                    </div>
+                    <div class="home-product-item__origin">
+                        <span class="home-product-item__brand">Sunday-Morning</span>
+                        <span class="home-product-item__origin-name">Việt Nam</span>
+                    </div>
+                    <div class="home-product-item__favourite">
+                        <i class="fas fa-check"></i>
+                        <span>Yêu thích</span>
+                    </div>
+                    <div class="home-product-item__sale-off">
+                        <span class="home-product-item__sale-off-percent">Best</span>
+                        <span class="home-product-item__sale-off-label">Seller</span>
+                    </div>
+                    @Html.ActionLink("CHI TIẾT", "Details", new { id = sanpham.ID }, new { @class = "btn btn-primary" })
+                </a>
+            </div>
+        }
+    </div>
+</body>
+</html>
+
+
