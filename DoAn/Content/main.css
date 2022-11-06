@@ -2,7 +2,9 @@
 .app {
     overflow: hidden;
 }
-
+.img-logo {
+    width: 3rem;
+}
 .header {
     height: var(--header-height);
     background-image: linear-gradient(0, #955412c2, #874642);
@@ -744,15 +746,21 @@
     position: relative;
     top: 1px;
 }
-
+.icon-cart {
+    color: #fff;
+    cursor: pointer;
+    font-size: 2.5rem;
+    margin-left: 2rem;
+}
 .header__search-btn {
     background-color: var(--primary-color);
     border: none;
-    height: 34px;
-    width: 60px;
+    height: 40px;
+    width: 100px;
     border-radius: 2px;
     margin-right: 3px;
     outline: none;
+    margin-left: 5px;
 }
 
     .header__search-btn:hover {
