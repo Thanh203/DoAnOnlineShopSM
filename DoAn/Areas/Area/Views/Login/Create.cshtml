@@ -1,4 +1,8 @@
-﻿@model DoAn.Models.LoginModels
+﻿@model DoAn.Models.EF.User
+@{
+    Layout = null;
+}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,53 +38,64 @@
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
-                        @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+                        @using (Html.BeginForm())
                         {
+                            @Html.AntiForgeryToken()
+                            
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <img src=@Url.Content("/Images/avatarCF.jpg") alt="Avatar" style="width:500px; height:612px;"/>
+                                    <img src=@Url.Content("/Images/avatarCF.jpg") alt="Avatar" style="width:490px; height:750px;" />
                                 </div>
                                 <div class="col-lg-6">
-                                    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                     <div class="p-5">
                                         <div class="text-center">
-                                            <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                            <h1 class="h4 text-gray-900 mb-4">Đăng kí thành viên</h1>
                                         </div>
                                         <form class="user">
                                             @Html.LabelFor(model => model.UserName)
                                             <div class="form-group">
                                                 @Html.TextBoxFor(model => model.UserName)
+                                                @Html.ValidationMessageFor(model => model.UserName)
                                             </div>
                                             @Html.LabelFor(model => model.Password)
                                             <div class="form-group">
                                                 @Html.PasswordFor(model => model.Password)
+                                                @Html.ValidationMessageFor(model => model.Password)
                                             </div>
-                                            <div class="form-group">
-                                                <div class="custom-control custom-checkbox small">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                    <label class="custom-control-label" for="customCheck">
-                                                        Remember Me
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            
-                                                <button type="submit" class="btn btn-default"><a class="btn btn-primary btn-user btn-block">Login</a></button>
 
-                                            <hr>
-                                            <a href="index.html" class="btn btn-google btn-user btn-block">
-                                                <i class="fab fa-google fa-fw"></i> Login with Google
-                                            </a>
-                                            <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                                <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                                            </a>
+                                            @Html.LabelFor(model => model.Name)
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(model => model.Name)
+                                                @Html.ValidationMessageFor(model => model.Name)
+                                            </div>
+
+                                            @Html.LabelFor(model => model.Address)
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(model => model.Address)
+                                                @Html.ValidationMessageFor(model => model.Address)
+                                            </div>
+
+                                            @Html.LabelFor(model => model.Email)
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(model => model.Email)
+                                                @Html.ValidationMessageFor(model => model.Email)
+                                            </div>
+
+                                            @Html.LabelFor(model => model.Phone)
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(model => model.Phone)
+                                                @Html.ValidationMessageFor(model => model.Phone)
+                                            </div>
+                                            @Html.LabelFor(model => model.Status)
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(model => model.Status)
+                                                @Html.ValidationMessageFor(model => model.Status)
+                                            </div>
+
+                                            <button type="submit" class="btn btn-default"><a class="btn btn-primary btn-user btn-block">Đăng kí</a></button>
                                         </form>
-                                        <hr>
-                                        <div class="text-center">
-                                            <a class="small" href="~/Area/User/Edit">Forgot Password?</a>
-                                        </div>
-                                        <div class="text-center">
-                                            <a class="small" href="~/Area/Login/Create">Create an Account!</a>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -109,3 +124,4 @@
 </body>
 
 </html>
+

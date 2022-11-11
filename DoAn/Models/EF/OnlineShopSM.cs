@@ -27,6 +27,7 @@ namespace DoAn.Models.EF
         public virtual DbSet<SystemConfig> SystemConfigs { get; set; }
         public virtual DbSet<Tag> Tags { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public object User { get; internal set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

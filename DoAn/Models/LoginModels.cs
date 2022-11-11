@@ -10,10 +10,10 @@ namespace DoAn.Models
     {
         [Key]
         [Display(Name = "User Name")]
-        [Required(ErrorMessage = "Ban phai nhap tai khoan")]
+        [Required(ErrorMessage = "Bạn phải nhập tài khoản")]
         public string UserName { get; set; }
         [Display(Name = "Password")]
-        [Required(ErrorMessage = "Ban phai nhap mat khau")]
+        [Required(ErrorMessage = "Bạn phải nhập mật khẩu")]
         public string Password { get; set; }
 
         public bool RememberMe { get; set; }

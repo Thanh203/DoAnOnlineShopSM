@@ -1,10 +1,13 @@
 ﻿using DoAn.Common;
 using DoAn.Models.Dao;
+using DoAn.Models.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+
+
 
 namespace DoAn.Areas.Area.Controllers
 {
@@ -43,6 +46,28 @@ namespace DoAn.Areas.Area.Controllers
                 {
                     ModelState.AddModelError("", "Mật khẩu không đúng");
                 }
+            }
+            return View("Index");
+        }
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Create(User user)
+        {
+            var dao = new UserDao();
+            var encryptedMd5Pass = Encryptor.MD5Hash(user.Password);
+            user.Password = encryptedMd5Pass;
+            long id = dao.Insert(user);
+            if (id > 0)
+            {
+                return RedirectToAction("Index", "User");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Thêm thành công");
             }
             return View("Index");
         }
