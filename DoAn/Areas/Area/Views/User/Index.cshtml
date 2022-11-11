@@ -45,10 +45,8 @@
                             {
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="col-md-8">
+                                        <div class="col-md-6" style="padding-top:7px;">
                                             <input type="text" value="@ViewBag.SearchString" name="searchString"/>
-                                        </div>
-                                        <div class="col-md-4">
                                             <button type="submit">Tìm kiếm</button>
                                         </div>
                                     </div>
@@ -64,6 +62,8 @@
                                             <th>Tài khoản</th>
                                             <th>Tên</th>
                                             <th>Email</th>
+                                            <th>Số điện thoại</th>
+                                            <th>Trạng thái</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -71,24 +71,20 @@
                                         {
                                             <tr id="row_@item.ID">
                                                 <td>
-                                                    <a href="/Area/User/Edit/@item.ID">Sửa</a>
-                                                    |
-                                                    @Ajax.ActionLink("Xóa", "Delete", new { @id = item.ID }, new AjaxOptions
-                                               {
-                                                   Confirm = "Bạn có muốn xóa bản ghi này?",
-                                                   OnComplete = "$('#row_" + item.ID + "').remove()",
-                                                   HttpMethod = "Delete"
-                                               })
-
+                                                    @Html.ActionLink("Sửa", "Edit", new { id = item.ID }, new { @class = "btn btn-success" }) |
+                                                    @Html.ActionLink("Chi tiết", "Details", new { id = item.ID }, new { @class = "btn btn-primary" }) |
+                                                    @Html.ActionLink("Xóa", "Delete", new { id = item.ID }, new { @class = "btn btn-danger" })
                                                 </td>
                                                 <td>@item.UserName</td>
                                                 <td>@item.Name</td>
                                                 <td>@item.Email</td>
+                                                <td>@item.Phone</td>
+                                                <td>@item.Status</td>
                                             </tr>
                                         }
                                     </tbody>
                                 </table>
-                                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }));
+                                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
                             </div>
                         </div>
                     </div>

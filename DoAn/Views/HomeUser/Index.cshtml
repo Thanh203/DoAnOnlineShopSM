@@ -1,10 +1,12 @@
-﻿
+﻿@model IEnumerable<DoAn.Models.EF.Product>
 @{
     ViewBag.Title = "Trang Chu";
     Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <link rel="stylesheet" href="~/Content/style.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap&subset=vietnamese" rel="stylesheet">
 
 <!-- home section starts  -->
 
@@ -51,47 +53,33 @@
     <h1 class="heading"> our <span>Sản phẩm mới</span> </h1>
 
     <div class="box-container">
-        <div class="box">
-            <img src="images/menu-1.png" alt="">
-            <h3>Cà phê đá</h3>
-            <div class="price">19.000đ <span>49.000đ</span></div>
-            <a href="#" class="btn">Thêm vào giỏ hàng</a>
-        </div>
+        @for (int i = 0; i < 3; i++)
+        {
+            <div class="box">
+                <a href="#">
+                    <div>
+                        <img src="~/Images/CaPheVN/@Model.ToList()[i].Image"  class="spimg"/>
+                    </div>
+                    <br />
+                    <h4 class="spstyle spstname">@Model.ToList()[i].Name</h4>
+                    <div class="home-product-item__price">
+                        <span class="spstyle" >@Model.ToList()[i].Price VND</span>
+                    </div>
 
-        <div class="box">
-            <img src="images/menu-2.png" alt="">
-            <h3>Trà vải</h3>
-            <div class="price">19.000đ <span>49.000đ</span></div>
-            <a href="#" class="btn">Thêm vào giỏ hàng</a>
-        </div>
+                    <div>
+                        <div  class="spstyle">
+                            <i class="home-product-item__star--gold fas fa-star"></i>
+                            <i class="home-product-item__star--gold fas fa-star"></i>
+                            <i class="home-product-item__star--gold fas fa-star"></i>
+                            <i class="home-product-item__star--gold fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    @Html.ActionLink("CHI TIẾT", "Details", new { id = @Model.ToList()[i].ID }, new { @class = "btn btn-primary" })
+                </a>
+            </div>
+        }
 
-        <div class="box">
-            <img src="images/menu-3.png" alt="">
-            <h3>Trà đào</h3>
-            <div class="price">19.000đ <span>49.000đ</span></div>
-            <a href="#" class="btn">Thêm vào giỏ hàng</a>
-        </div>
-
-        <div class="box">
-            <img src="images/menu-4.png" alt="">
-            <h3>Trà dâu</h3>
-            <div class="price">19.000đ <span>49.000đ</span></div>
-            <a href="#" class="btn">Thêm vào giỏ hàng</a>
-        </div>
-
-        <div class="box">
-            <img src="images/menu-5.png" alt="">
-            <h3>Trà cam vàng mật ong</h3>
-            <div class="price">19.000đ <span>49.000đ</span></div>
-            <a href="#" class="btn">Thêm vào giỏ hàng</a>
-        </div>
-
-        <div class="box">
-            <img src="images/menu-6.png" alt="">
-            <h3>Cà phê sữa</h3>
-            <div class="price">19.000đ <span>49.000đ</span></div>
-            <a href="#" class="btn">Thêm vào giỏ hàng</a>
-        </div>
 
     </div>
     <a href="/CustomerProducts/Index" class="btn more" style="margin-left:43%;">Xem thêm</a>
@@ -234,8 +222,6 @@
 </section>
 
 <!-- blogs section ends -->
-
-
 <!-- footer section ends -->
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
