@@ -9,7 +9,6 @@
     height: var(--header-height);
     background-image: linear-gradient(0, #955412c2, #874642);
 }
-
 .header__navbar {
     display: flex;
     justify-content: space-between;
