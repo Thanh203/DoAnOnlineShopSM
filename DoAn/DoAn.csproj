@@ -2141,6 +2141,8 @@
     <Content Include="Views\CustomerProducts\Details.cshtml" />
     <Content Include="Views\Cart\GetCartInfo.cshtml" />
     <Content Include="Views\HomeUser\Details.cshtml" />
+    <Content Include="Views\ProductCategory\LayChuDe.cshtml" />
+    <Content Include="Views\CustomerProducts\LayChuDe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include=".vs\DoAn\v16\" />

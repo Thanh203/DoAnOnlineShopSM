@@ -43,7 +43,7 @@ namespace DoAn.Controllers
             var productCategory = db.ProductCategories.Where(c => c.ID == id).FirstOrDefault();
             return View(productCategory);
         }
-        
+
         [HttpGet]
         public ActionResult Edit(int id)
         {
@@ -57,7 +57,7 @@ namespace DoAn.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-        
+
         [HttpGet]
         public ActionResult Delete(int? id)
         {
@@ -87,5 +87,6 @@ namespace DoAn.Controllers
                 return Content("Không xóa được do có liên quan đến bảng khác");
             }
         }
-    }
+
+    }    
 }

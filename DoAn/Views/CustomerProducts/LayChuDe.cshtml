@@ -1,0 +1,11 @@
+﻿@using DoAn.Models
+@model IEnumerable<DoAn.Models.EF.ProductCategory>
+
+<ul class="list-group">
+    @foreach (var chude in Model)
+    {
+        <a href="@Url.Action("SPTheoChuDe", "CustomerProducts", new{ id = chude.ID })" class="list-group-item list-group-item-action">
+            @chude.Name
+        </a>
+    }
+</ul>

@@ -31,6 +31,15 @@ namespace DoAn.Controllers
             }
             return View(product);
         }
-
+        public ActionResult LayChuDe()
+        {
+            var dsChuDe = db.ProductCategories.ToList();
+            return PartialView(dsChuDe);
+        }
+        public ActionResult SPTheoChuDe(int id)
+        {
+            var dsTheoChuDe = db.Products.Where(x => x.CategoryID == id).ToList();  
+            return View("Index", dsTheoChuDe);
+        }
     }
 }
