@@ -15,11 +15,12 @@ namespace DoAn.Controllers
     {
         // GET: Product
         OnlineShopSM db = new OnlineShopSM(); 
-        public ActionResult Index()
+        public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
         {
-            var products = db.Products.ToList();
-
-            return View(products);
+            var dao = new UserDao();
+            var model = dao.ListAllPagingProduct(searchString, page, pageSize);
+            ViewBag.SearchString = searchString;
+            return View(model);
         }
         [HttpGet]
         public ActionResult Create()

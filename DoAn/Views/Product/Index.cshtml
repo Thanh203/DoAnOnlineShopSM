@@ -1,5 +1,5 @@
-﻿@model IEnumerable<DoAn.Models.EF.Product>
-
+﻿@model PagedList.IPagedList<DoAn.Models.EF.Product>
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_MasterLayoutAdmin.cshtml";
@@ -37,7 +37,19 @@
                         <div class="card-header py-3">
                             <h3 class="m-0 font-weight-bold text-primary">Danh sách người dùng</h3>
                         </div>
-                        
+                        <div class="panel-body">
+                            @using (Html.BeginForm("Index", "Product", FormMethod.Get))
+                            {
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="col-md-6" style="padding-top:7px;">
+                                            <input type="text" value="@ViewBag.SearchString" name="searchString" />
+                                            <button type="submit">Tìm kiếm</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 @Html.ActionLink("Tạo mới", "Create", new { @class = "btn btn-success" })
@@ -74,7 +86,7 @@
                                         }
                                     </tbody>
                                 </table>
-
+                                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
                             </div>
                         </div>
                     </div>
