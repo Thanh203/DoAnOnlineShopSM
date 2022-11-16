@@ -1,5 +1,5 @@
-﻿@model IEnumerable<DoAn.Models.EF.ProductCategory>
-
+﻿@model PagedList.IPagedList<DoAn.Models.EF.ProductCategory>
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_MasterLayoutAdmin.cshtml";
@@ -38,7 +38,19 @@
                         <div class="card-header py-3">
                             <h3 class="m-0 font-weight-bold text-primary">Danh sách Title</h3>
                         </div>
-
+                        <div class="panel-body">
+                            @using (Html.BeginForm("Index", "ProductCategory", FormMethod.Get))
+                            {
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="col-md-6" style="padding-top:7px;">
+                                            <input type="text" value="@ViewBag.SearchString" name="searchString" />
+                                            <button type="submit">Tìm kiếm</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -55,22 +67,22 @@
                                     <tbody>
                                         @foreach (var item in Model)
                                         {
-                                        <tr id="row_@item.ID">
-                                            <td>
-                                                @Html.ActionLink("Sửa", "Edit", new { id = item.ID}, new {@class = "btn btn-success"}) |
-                                                @Html.ActionLink("Chi tiết", "Details", new { id = item.ID }, new { @class = "btn btn-primary" }) |
-                                                @Html.ActionLink("Xóa", "Delete", new { id = item.ID }, new {@class = "btn btn-danger" })
-                                            </td>
-                                            <td>@item.ID</td>
-                                            <td>@item.Name</td>
-                                            <td>@item.CreatedBy</td>
-                                            <td>@item.CreatedDate</td>
-                                            <td>@item.Status</td>
-                                        </tr>
+                                            <tr id="row_@item.ID">
+                                                <td>
+                                                    @Html.ActionLink("Sửa", "Edit", new { id = item.ID }, new { @class = "btn btn-success" }) |
+                                                    @Html.ActionLink("Chi tiết", "Details", new { id = item.ID }, new { @class = "btn btn-primary" }) |
+                                                    @Html.ActionLink("Xóa", "Delete", new { id = item.ID }, new { @class = "btn btn-danger" })
+                                                </td>
+                                                <td>@item.ID</td>
+                                                <td>@item.Name</td>
+                                                <td>@item.CreatedBy</td>
+                                                <td>@item.CreatedDate</td>
+                                                <td>@item.Status</td>
+                                            </tr>
                                         }
                                     </tbody>
                                 </table>
-
+                                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
                             </div>
                         </div>
                     </div>

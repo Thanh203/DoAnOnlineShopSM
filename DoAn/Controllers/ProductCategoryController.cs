@@ -1,4 +1,5 @@
 ﻿using DoAn.Models.EF;
+using DoAn.Models.Dao;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +13,12 @@ namespace DoAn.Controllers
     {
         // GET: ProductCategory
         OnlineShopSM db = new OnlineShopSM();
-        public ActionResult Index()
+        public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
         {
-            var productsCategory = db.ProductCategories.ToList();
-
-            return View(productsCategory);
+            var dao = new UserDao();
+            var model = dao.ListAllPagingCategory(searchString, page, pageSize);
+            ViewBag.SearchString = searchString;
+            return View(model);
         }
         [HttpGet]
         public ActionResult Create()
