@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Trang Chu";
     Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    var format = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
 }
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -63,7 +64,7 @@
                     <br />
                     <h4 class="spstyle spstname">@Model.ToList()[i].Name</h4>
                     <div class="home-product-item__price">
-                        <span class="spstyle" >@Model.ToList()[i].Price VND</span>
+                        <span class="spstyle">@String.Format(format, "{0:c0}", @Model.ToList()[i].Price)</span>
                     </div>
 
                     <div>

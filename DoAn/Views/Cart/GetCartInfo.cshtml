@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "GetCart";
     Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+    var format = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
 }
 <head>
     <link rel="stylesheet" href="~/Content/stproduct.css">
@@ -43,13 +44,13 @@
                                                 <td>@product.NamePro</td>
                                                 <td><img src="~/Images/@product.ImagePro" style="width:100px; height:120px;" /></td>
                                                 <td>@product.Number</td>
-                                                <td>@product.Price</td>
-                                                <td>@product.FinalPrice()</td>
+                                                <td>@String.Format(format, "{0:c0}", @product.Price)</td>
+                                                <td>@String.Format(format, "{0:c0}", @product.FinalPrice())</td>
                                             </tr>
                                         }
                                         <tr style="font-weight:bold; text-align:right; color:red;">
                                             <td colspan="4">Tổng số lượng: @ViewBag.TotalNumber</td>
-                                            <td colspan="2">Tổng tiền: @ViewBag.TotalPrice</td>
+                                            <td colspan="2">Tổng tiền: @String.Format(format, "{0:c0}", @ViewBag.TotalPrice)</td>
                                         </tr>
                                     </tbody>
                                 </table>

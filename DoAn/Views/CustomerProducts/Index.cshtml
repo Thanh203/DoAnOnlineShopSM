@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutPage.cshtml";
+    var format = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +45,7 @@
                     </div>
                     <h4 class="home-product-item__name">@sanpham.Name</h4>
                     <div class="home-product-item__price">
-                        <span class="home-product-item__price-current">@sanpham.Price VND</span>
+                        <span class="home-product-item__price-current">@String.Format(format, "{0:c0}", @sanpham.Price)</span>
 
                     </div>
 
