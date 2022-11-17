@@ -754,12 +754,15 @@
 .header__search-btn {
     background-color: var(--primary-color);
     border: none;
-    height: 40px;
-    width: 100px;
+    width: 140px;
     border-radius: 2px;
     margin-right: 3px;
     outline: none;
     margin-left: 5px;
+    font-size: 1.5rem;
+    margin-top:8px;
+    padding-top:8px;
+    height:40px;
 }
 
     .header__search-btn:hover {
@@ -1243,7 +1246,7 @@ i.home-product-item__like-icon-fill {
 .home-product-item__favourite {
     top: 10px;
     left: -4px;
-    color: var(--primary-color);
+    color: #8f4a03;
     background-color: currentColor;
     font-size: 1.2rem;
     font-weight: 500;

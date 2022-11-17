@@ -61,6 +61,15 @@ namespace DoAn.Models.Dao
             }
             return model.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
         }
+        public IEnumerable<Product> ListAllPagingCustomer(string searchString, int page = 1, int pageSize = 8)
+        {
+            IQueryable<Product> model = db.Products;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                model = model.Where(x => x.Name.Contains(searchString));
+            }
+            return model.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
+        }
         public IEnumerable<ProductCategory> ListAllPagingCategory(string searchString, int page = 1, int pageSize = 10)
         {
             IQueryable<ProductCategory> model = db.ProductCategories;
