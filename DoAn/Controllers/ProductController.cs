@@ -37,13 +37,9 @@ namespace DoAn.Controllers
             {
                 if (Image != null)
                 {
-                    //Lấy tên file của hình được up lên
                     var fileName = Path.GetFileName(Image.FileName);
-                    //Tạo đường dẫn tới file
                     var path = Path.Combine(Server.MapPath("~/Images"), fileName);
-                    //Lưu tên
                     product.Image = fileName;
-                    //Save vào Images Folder
                     Image.SaveAs(path);
                 }
                 db.Products.Add(product);
@@ -104,8 +100,7 @@ namespace DoAn.Controllers
         {
             if (id == null)
             {
-                return new
-               HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var product = db.Products.Where(c => c.ID == id).FirstOrDefault();
             if (product == null)

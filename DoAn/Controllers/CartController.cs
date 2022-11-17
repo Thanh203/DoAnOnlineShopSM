@@ -12,9 +12,7 @@ namespace DoAn.Controllers
         // GET: Cart
         public List<CartItem> GetCart()
         {
-            List<CartItem> myCart = Session["GioHang"] as
-           List<CartItem>;
-            //Nếu giỏ hàng chưa tồn tại thì tạo mới và đưa vào Session
+            List<CartItem> myCart = Session["GioHang"] as List<CartItem>;
             if (myCart == null)
             {
                 myCart = new List<CartItem>();
@@ -24,7 +22,6 @@ namespace DoAn.Controllers
         }
         public ActionResult AddToCart(int id)
         {
-            //Lấy giỏ hàng hiện tại
             List<CartItem> myCart = GetCart();
             CartItem currentProduct = myCart.FirstOrDefault(p => p.ProductID == id);
             if (currentProduct == null)
@@ -34,12 +31,9 @@ namespace DoAn.Controllers
             }
             else
             {
-                currentProduct.Number++; //Sản phẩm đã có trong giỏ thì tăng số lượng lên 1
+                currentProduct.Number++; 
             }
-            return RedirectToAction("Index", "CustomerProducts", new
-            {
-                id = id
-            });
+            return RedirectToAction("Index", "CustomerProducts", new { id = id });
         }
         private int GetTotalNumber()
         {
@@ -60,14 +54,13 @@ namespace DoAn.Controllers
         public ActionResult GetCartInfo()
         {
             List<CartItem> myCart = GetCart();
-            //Nếu giỏ hàng trống thì trả về trang ban đầu
             if (myCart == null || myCart.Count == 0)
             {
                 return RedirectToAction("Index", "CustomerProducts");
             }
             ViewBag.TotalNumber = GetTotalNumber();
             ViewBag.TotalPrice = GetTotalPrice();
-            return View(myCart); //Trả về View hiển thị thông tin giỏ hàng
+            return View(myCart); 
         }
 
     }
