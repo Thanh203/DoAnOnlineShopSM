@@ -62,6 +62,11 @@ namespace DoAn.Controllers
             ViewBag.TotalPrice = GetTotalPrice();
             return View(myCart); 
         }
-
+        public ActionResult CartPartial()
+        {
+            ViewBag.TotalNumber = GetTotalNumber();
+            ViewBag.TotalPrice = GetTotalPrice();
+            return PartialView();
+        }
     }
 }

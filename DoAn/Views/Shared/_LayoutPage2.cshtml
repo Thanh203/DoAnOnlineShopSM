@@ -25,16 +25,20 @@
         </a>
 
         <nav class="navbar">
-            <a href="/HomeUser/Index/#home">Trang chủ</a>
-            <a href="/HomeUser/Index/#about">Về cửa hàng</a>
-            <a href="/HomeUser/Index/#menu">Menu</a>
-            <a href="/HomeUser/Index/#review">Review</a>
-            <a href="/HomeUser/Index/#contact">Liên hệ</a>
-            <a href="/HomeUser/Index/#blogs">Blogs</a>
+            <a href="/HomeUser/Index/#home" class="tdct_none">Trang chủ</a>
+            <a href="/HomeUser/Index/#about" class="tdct_none">Về cửa hàng</a>
+            <a href="/CustomerProducts/Index" class="tdct_none">Sản phẩm</a>
+            <a href="/HomeUser/Index/#review" class="tdct_none">Review</a>
+            <a href="/HomeUser/Index/#contact" class="tdct_none">Liên hệ</a>
+            <a href="/HomeUser/Index/#blogs" class="tdct_none">Blogs</a>
         </nav>
 
         <div class="icons">
-            <a href="/Cart/GetCartInfo"><div class="fas fa-shopping-cart icon-cart" id="cart-btn"></div></a>
+            <a href="~/Cart/GetCartInfo" >
+                <div class="fas fa-shopping-cart icon-cart" id="cart-btn">           
+                    @Html.Action("CartPartial", "Cart")
+                </div>
+            </a>
             <a href="~/Area/Login/"><div class="fas fa-sign-in-alt"></div></a>
             <a href="~/Area/Admin"><div class="fas fa-laugh-wink"></div></a>
             <div class="fas fa-bars" id="menu-btn"></div>

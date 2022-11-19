@@ -752,7 +752,8 @@
     margin-left: 2rem;
 }
 .header__search-btn {
-    background-color: var(--primary-color);
+    background-color: #8f4a03;
+    color:white;
     border: none;
     width: 140px;
     border-radius: 2px;
@@ -760,14 +761,14 @@
     outline: none;
     margin-left: 5px;
     font-size: 1.5rem;
-    margin-top:8px;
-    padding-top:8px;
-    height:40px;
+    margin-top: 8px;
+    padding-top: 8px;
+    height: 40px;
 }
 
     .header__search-btn:hover {
         cursor: pointer;
-        background-color: #fb6445;
+        background-color: #d36f07;
     }
 
 .header__search-btn-icon {

@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_MasterLayoutAdmin.cshtml";
+    var format = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
 }
 
 <head>
@@ -60,7 +61,7 @@
                                 <div>
                                     <p class="info_product_title">@Html.DisplayFor(model => model.Name)</p>
                                     <div class="info_product_price">
-                                        <span class="price">@Html.DisplayFor(model => model.Price)</span>
+                                        <span class="price">@String.Format(format, "{0:c0}", @Model.Price)</span>
                                     </div>
                                 </div>
                                 <div class="option_sizes">
