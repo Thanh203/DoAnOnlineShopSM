@@ -24,6 +24,7 @@ namespace DoAn.Areas.Area.Controllers
         {
             return View();
         }
+        [HttpGet]
         public ActionResult Edit(int id)
         {
             var user = new UserDao().ViewDetail(id);

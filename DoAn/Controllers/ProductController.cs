@@ -15,7 +15,7 @@ namespace DoAn.Controllers
     {
         // GET: Product
         OnlineShopSM db = new OnlineShopSM(); 
-        public ActionResult Index(string searchString, int page = 1, int pageSize = 8)
+        public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
         {
             var dao = new UserDao();
             var model = dao.ListAllPagingProduct(searchString, page, pageSize);

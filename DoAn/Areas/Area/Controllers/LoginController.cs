@@ -29,7 +29,9 @@ namespace DoAn.Areas.Area.Controllers
                     var user = dao.GetById(models.UserName);
                     var userSession = new UserLogin();
                     userSession.UserName = user.UserName;
+                    Session["UserName"] = user.UserName;
                     userSession.UserID = user.ID;
+                    Session["UserID"] = user.ID;
 
                     Session.Add(CommonConstants.USER_SESSION, userSession);
                     return RedirectToAction("Index", "Home");

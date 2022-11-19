@@ -23,7 +23,7 @@
     outline: none;
     border: none;
     text-decoration: none;
-    text-transform: capitalize;
+   
     transition: .2s linear;
 }
 
@@ -127,8 +127,13 @@ section {
     .header .icons div {
         color: #fff;
         cursor: pointer;
+        display:flex;
         font-size: 2.5rem;
         margin-left: 2rem;
+    }
+    .header .icons{
+        display: flex;
+
     }
 
         .header .icons div:hover {

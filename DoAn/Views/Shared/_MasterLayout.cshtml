@@ -33,16 +33,34 @@
             <a href="/HomeUser/Index/#blogs">Blogs</a>
         </nav>
 
-        <div class="icons">
+        <div class="icons" style="display:flex;">
             <a href="~/Cart/GetCartInfo">
                 <div class="fas fa-shopping-cart icon-cart" id="cart-btn">
-                              
-                    
+
+
                 </div>
             </a>
-            <a href="~/Area/Login/"><div class="fas fa-sign-in-alt"></div></a>
-            <a href="~/Area/Admin"><div class="fas fa-laugh-wink"></div></a>
-            <div class="fas fa-bars" id="menu-btn"></div>
+            @if (Session["UserID"] != null)
+            {
+                <a href="~/Area/Admin"><div class="fas fa-laugh-wink"></div></a>
+                <div class="header__navbar-item header__navbar-user">
+                    <img src="https://i.pinimg.com/736x/05/09/94/050994962c61328795f2568b4c51c0ab.jpg" alt="" class="header__navbar-user-img">
+                    <span class="header__navbar-user-name">@Session["UserName"]</span>
+
+                    <ul class="header__navbar-user-menu">
+                        <li class="header__navbar-user-item">
+                            <a href="">Tài khoản của tôi</a>
+                        </li>
+                        <li class="header__navbar-user-item header__navbar-user-item--separate">
+                            <a href="">Đăng xuất</a>
+                        </li>
+                    </ul>
+                </div>
+            }
+            else
+            {
+                <a href="~/Area/Login/"><div class="fas fa-sign-in-alt"></div></a>
+            }
 
         </div>
     </header>
