@@ -74,7 +74,11 @@
                         <p class="home-product-item__sale-off-percent">Best</p>
                         <p class="home-product-item__sale-off-label">Seller</p>
                     </div>
+                    <a href="@Url.Action("AddToCart", "Cart", new { id = sanpham.ID })">
 
+                        <span class="btn btn-danger">Đặt mua</span>
+                    </a>
+                    
                 </a>
             </div>
         }

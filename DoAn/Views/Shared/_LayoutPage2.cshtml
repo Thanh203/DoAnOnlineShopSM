@@ -35,9 +35,7 @@
 
         <div class="icons">
             <a href="~/Cart/GetCartInfo">
-                <div class="fas fa-shopping-cart icon-cart" id="cart-btn">
-                    @Html.Action("CartPartial", "Cart")
-                </div>
+                @Html.Action("CartPartial", "Cart")
             </a>
             @if (Session["UserID"] != null)
             {

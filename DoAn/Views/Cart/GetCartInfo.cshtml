@@ -53,6 +53,31 @@
                                             <td colspan="2">Tổng tiền: @String.Format(format, "{0:c0}", @ViewBag.TotalPrice)</td>
                                         </tr>
                                     </tbody>
+                                    <tfoot>
+                                        @using (Html.BeginForm("CheckOut", "Cart"))
+                                        {
+                                            <table style="border-collapse:separate; border-spacing:5px;width:100%;">
+                                                <tr>
+                                                    <td><label for="CodeCustomer">Tên Khách hàng :</label></td>
+                                                    <td> <input type="text" name="CodeCustomer" id="CodeCustomer" required /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><label for="AddressDeliverry">Địa chỉ giao hàng : </label></td>
+                                                    <td> <input type="text" name="AddressDeliverry" id="AddressDeliverry" required /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><label for="NumberPhone">Số điện thoại giao hàng : </label></td>
+                                                    <td> <input type="text" name="NumberPhone" id="NumberPhone" required /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td>
+                                                        <input type="submit" value="Thanh toán" class="btn btn-success" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        }
+                                    </tfoot>
                                 </table>
 
                             </div>

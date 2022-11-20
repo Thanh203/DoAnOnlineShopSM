@@ -68,5 +68,22 @@ namespace DoAn.Controllers
             ViewBag.TotalPrice = GetTotalPrice();
             return PartialView();
         }
+        public ActionResult CheckOut(FormCollection form)
+        {
+            try
+            {
+                List<CartItem> myCart = GetCart();
+                myCart.Clear();
+                return RedirectToAction("CheckOut_Success", "Cart");
+            }
+            catch
+            {
+                return Content("Có sai sót! Xin kiểm tra lại thông tin");
+            }
+        }
+        public ActionResult CheckOut_Success()
+        {
+            return View();
+        }
     }
 }

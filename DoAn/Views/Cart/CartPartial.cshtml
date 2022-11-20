@@ -1,3 +1,11 @@
-﻿<a href="@Url.Action("GetCartInfo", "Cart")" style="text-decoration: none; color: white; font-weight: bold;font-size:15px;">
-     (@ViewBag.TotalNumber)
+﻿<link rel="stylesheet" href="~/Content/style.css" />
+<link rel="stylesheet" href="~/Content/main.css" />
+
+<!-- icont link-->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<a href="@Url.Action("GetCartInfo", "Cart")" style="text-decoration: none; color: white; font-weight: bold;font-size:15px;">
+
+    <div class="fas fa-shopping-cart icon-cart" id="cart-btn">
+        (@ViewBag.TotalNumber)
+    </div>
 </a>
