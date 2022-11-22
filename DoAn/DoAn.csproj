@@ -145,6 +145,7 @@
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CustomerProductsController.cs" />
     <Compile Include="Controllers\HomeUserController.cs" />
+    <Compile Include="Controllers\LoginUserController.cs" />
     <Compile Include="Controllers\ProductCategoryController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
@@ -2154,6 +2155,7 @@
     <Folder Include="Areas\Area\Views\Base\" />
     <Folder Include="Areas\Area\Views\Shared\" />
     <Folder Include="Assets\Admin\js\plugins\" />
+    <Folder Include="Views\LoginUser\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

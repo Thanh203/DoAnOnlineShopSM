@@ -39,14 +39,15 @@
                                     <tbody>
                                         @foreach (var product in Model)
                                         {
-                                            <tr>
-                                                <td>@product.ProductID</td>
-                                                <td>@product.NamePro</td>
-                                                <td><img src="~/Images/@product.ImagePro" style="width:100px; height:120px;" /></td>
-                                                <td>@product.Number</td>
-                                                <td>@String.Format(format, "{0:c0}", @product.Price)</td>
-                                                <td>@String.Format(format, "{0:c0}", @product.FinalPrice())</td>
-                                            </tr>
+                                        <tr>
+                                            <td>@product.ProductID</td>
+                                            <td>@product.NamePro</td>
+                                            <td><img src="~/Images/@product.ImagePro" style="width:100px; height:120px;" /></td>
+                                            
+                                            <td>@product.Number</td>
+                                            <td>@String.Format(format, "{0:c0}", @product.Price)</td>
+                                            <td>@String.Format(format, "{0:c0}", @product.FinalPrice())</td>
+                                        </tr>
                                         }
                                         <tr style="font-weight:bold; text-align:right; color:red;">
                                             <td colspan="4">Tổng số lượng: @ViewBag.TotalNumber</td>
