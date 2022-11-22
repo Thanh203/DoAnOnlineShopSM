@@ -60,24 +60,26 @@
                                             <th>Tên</th>
                                             <th>Email</th>
                                             <th>Số điện thoại</th>
+                                            <th>Chức năng</th>
                                             <th>Trạng thái</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach (var item in Model)
                                         {
-                                            <tr id="row_@item.ID">
-                                                <td>
-                                                    @Html.ActionLink("Sửa", "Edit", new { id = item.ID }, new { @class = "btn btn-success" }) |
-                                                   
-                                                    @Html.ActionLink("Xóa", "Delete", new { id = item.ID }, new { @class = "btn btn-danger" })
-                                                </td>
-                                                <td>@item.UserName</td>
-                                                <td>@item.Name</td>
-                                                <td>@item.Email</td>
-                                                <td>@item.Phone</td>
-                                                <td>@item.Status</td>
-                                            </tr>
+                                        <tr id="row_@item.ID">
+                                            <td>
+                                                @Html.ActionLink("Sửa", "Edit", new { id = item.ID }, new { @class = "btn btn-success" }) |
+
+                                                @Html.ActionLink("Xóa", "Delete", new { id = item.ID }, new { @class = "btn btn-danger" })
+                                            </td>
+                                            <td>@item.UserName</td>
+                                            <td>@item.Name</td>
+                                            <td>@item.Email</td>
+                                            <td>@item.Phone</td>
+                                            <td>@item.ModifiedBy</td>
+                                            <td>@item.Status</td>
+                                        </tr>
                                         }
                                     </tbody>
                                 </table>

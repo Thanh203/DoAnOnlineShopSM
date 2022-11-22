@@ -145,7 +145,6 @@
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CustomerProductsController.cs" />
     <Compile Include="Controllers\HomeUserController.cs" />
-    <Compile Include="Controllers\LoginUserController.cs" />
     <Compile Include="Controllers\ProductCategoryController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">

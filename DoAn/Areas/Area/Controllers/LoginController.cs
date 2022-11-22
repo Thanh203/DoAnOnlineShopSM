@@ -36,6 +36,18 @@ namespace DoAn.Areas.Area.Controllers
                     Session.Add(CommonConstants.USER_SESSION, userSession);
                     return RedirectToAction("Index", "Home");
                 }
+                else if (result == 2)
+                {
+                    var user = dao.GetById(models.UserName);
+                    var userSession = new UserLogin();
+                    userSession.UserName = user.UserName;
+                    Session["UserName"] = user.UserName;
+                    userSession.UserID = user.ID;
+                    Session["UserID"] = user.ID;
+
+                    Session.Add(CommonConstants.USER_SESSION, userSession);
+                    return RedirectToAction("Index", "Admin");
+                }
                 else if (result == 0)
                 {
                     ModelState.AddModelError("", "Tài khoản không tông tại");

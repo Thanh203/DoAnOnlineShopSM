@@ -102,7 +102,11 @@ namespace DoAn.Models.Dao
                 }
                 else
                 {
-                    if (result.Password == passWord)
+                    if ((result.ModifiedBy != null)&&(result.Password == passWord))
+                    {
+                        return 2;
+                    }
+                    else if (result.Password == passWord)
                     {
                         return 1;
                     }
