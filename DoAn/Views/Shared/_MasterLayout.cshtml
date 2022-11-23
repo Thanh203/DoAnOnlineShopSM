@@ -50,7 +50,16 @@
                             <a href="">Tài khoản của tôi</a>
                         </li>
                         <li class="header__navbar-user-item header__navbar-user-item--separate">
-                            <a href="">Đăng xuất</a>
+                            @if (Session["ModifiedBy"] != null)
+                            {
+                                <a href="~/Area/Login/Logout">Đăng xuất</a>
+                            }
+                            else
+                            {
+                                <a>@Html.ActionLink("Đăng xuất", "Logout", "Login")</a>
+                            }
+
+
                         </li>
                     </ul>
                 </div>

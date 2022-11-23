@@ -32,6 +32,7 @@ namespace DoAn.Areas.Area.Controllers
                     Session["UserName"] = user.UserName;
                     userSession.UserID = user.ID;
                     Session["UserID"] = user.ID;
+                    Session["ModifiedBy"] = user.ModifiedBy;
 
                     Session.Add(CommonConstants.USER_SESSION, userSession);
                     return RedirectToAction("Index", "Home");
@@ -44,6 +45,7 @@ namespace DoAn.Areas.Area.Controllers
                     Session["UserName"] = user.UserName;
                     userSession.UserID = user.ID;
                     Session["UserID"] = user.ID;
+                    Session["ModifiedBy"] = user.ModifiedBy;
 
                     Session.Add(CommonConstants.USER_SESSION, userSession);
                     return RedirectToAction("Index", "Admin");
@@ -74,6 +76,7 @@ namespace DoAn.Areas.Area.Controllers
             var dao = new UserDao();
             var encryptedMd5Pass = Encryptor.MD5Hash(user.Password);
             user.Password = encryptedMd5Pass;
+            
             long id = dao.Insert(user);
             if (id > 0)
             {
@@ -84,6 +87,13 @@ namespace DoAn.Areas.Area.Controllers
                 ModelState.AddModelError("", "Thêm thành công");
             }
             return View("Index");
+        }
+        public ActionResult Logout()
+        {
+
+            Session.Remove("UserName");
+            Session.Remove("UserID");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

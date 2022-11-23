@@ -63,7 +63,10 @@
                                                 @Html.PasswordFor(model => model.Password)
                                                 @Html.ValidationMessageFor(model => model.Password)
                                             </div>
-
+                                            <label for="floatingPassword">Confirm Password</label>
+                                            <div class="form-group">
+                                                <input name="ConfirmPassword" type="password" id="floatingPassword" placeholder="."/>
+                                            </div>
                                             @Html.LabelFor(model => model.Name)
                                             <div class="form-group">
                                                 @Html.TextBoxFor(model => model.Name)
