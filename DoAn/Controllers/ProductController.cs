@@ -8,7 +8,6 @@ using System.Web;
 using System.Web.Mvc;
 using System.IO;
 
-
 namespace DoAn.Controllers
 {
     public class ProductController : Controller
@@ -25,12 +24,10 @@ namespace DoAn.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-
         public ActionResult Create(Product product, HttpPostedFileBase Image)
         {
             if (ModelState.IsValid)
@@ -93,7 +90,6 @@ namespace DoAn.Controllers
             }
             ViewBag.Category = new SelectList(db.Categories, "IDCate", "NameCate",product.CategoryID);
             return View(product);
-
         }
         [HttpGet]
         public ActionResult Delete(int? id)

@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Delete";
     Layout = "~/Views/Shared/_MasterLayoutAdmin.cshtml";
+    var format = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
 }
 <head>
     <link rel="stylesheet" href="~/Content/stproduct.css">
@@ -49,18 +50,7 @@
                                    data-slide="next">
                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                     <span class="sr-only">Next</span>
-                                </a>
-                                <div id="thumbCarousel">
-                                    <div data-target="#productCarousel" data-slide-to="0" class="thumb">
-                                        <img src="https://product.hstatic.net/1000075078/product/1653291204_hi-tea-vai_0e8376fb3eec4127ba33aa47b8d2c723.jpg">
-                                    </div>
-                                    <div data-target="#productCarousel" data-slide-to="1" class="thumb active">
-                                        <img src="https://product.hstatic.net/1000075078/product/1650529462_hi-tea-vai-1_5545934c15af44cebfa0f792f68b3ec9.jpg">
-                                    </div>
-                                    <div data-target="#productCarousel" data-slide-to="2" class="thumb">
-                                        <img src="https://product.hstatic.net/1000075078/product/1650529463_hi-tea-vai_c50f87c891c141ffa1e2cba41f17cf45.jpg">
-                                    </div>
-                                </div>
+                                </a>                
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
@@ -69,7 +59,7 @@
                                     <div>
                                         <p class="info_product_title">@Html.DisplayFor(model => model.Name)</p>
                                         <div class="info_product_price">
-                                            <span class="price">@Html.DisplayFor(model => model.Price)</span>
+                                            <span class="price">@String.Format(format, "{0:c0}", @Model.Price)</span>
                                         </div>
                                     </div>
                                     <div class="option_sizes">
@@ -171,86 +161,6 @@
                     <div class="product-related">
                         <h2 class="related_product_title">Sản phẩm liên quan</h2>
                         <div class="list_product_related buy_combo">
-                            <div class="menu_item">
-                                <div class="menu_item_image">
-                                    <a>
-                                        <img class=" lazyloaded"
-                                             src="https://product.hstatic.net/1000075078/product/1665655318_hi-tea-quyt_815bf4bbd3214e828212efcb8afa4cf3.jpg"
-                                             alt="hi tea da tuyet yuzu vai">
-                                    </a>
-                                    <ul class="labels">
-                                    </ul>
-                                </div>
-                                <div class="menu_item_info">
-                                    <h3>
-                                        <a title="Hi-Tea Đá Tuyết Yuzu Vải">
-                                            Hi-Tea Đá
-                                            Tuyết Yuzu Vải
-                                        </a>
-                                    </h3>
-                                    <div class="price_product_item">55.000 đ</div>
-                                </div>
-                            </div>
-                            <div class="menu_item">
-                                <div class="menu_item_image">
-                                    <a>
-                                        <img class=" lazyloaded"
-                                             src="https://product.hstatic.net/1000075078/product/1665655318_hi-tea-quyt_815bf4bbd3214e828212efcb8afa4cf3.jpg"
-                                             alt="hi tea da tuyet yuzu vai">
-                                    </a>
-                                    <ul class="labels">
-                                    </ul>
-                                </div>
-                                <div class="menu_item_info">
-                                    <h3>
-                                        <a title="Hi-Tea Đá Tuyết Yuzu Vải">
-                                            Hi-Tea Đá
-                                            Tuyết Yuzu Vải
-                                        </a>
-                                    </h3>
-                                    <div class="price_product_item">55.000 đ</div>
-                                </div>
-                            </div>
-                            <div class="menu_item">
-                                <div class="menu_item_image">
-                                    <a>
-                                        <img class=" lazyloaded"
-                                             src="https://product.hstatic.net/1000075078/product/1665655318_hi-tea-quyt_815bf4bbd3214e828212efcb8afa4cf3.jpg"
-                                             alt="hi tea da tuyet yuzu vai">
-                                    </a>
-                                    <ul class="labels">
-                                    </ul>
-                                </div>
-                                <div class="menu_item_info">
-                                    <h3>
-                                        <a title="Hi-Tea Đá Tuyết Yuzu Vải">
-                                            Hi-Tea Đá
-                                            Tuyết Yuzu Vải
-                                        </a>
-                                    </h3>
-                                    <div class="price_product_item">55.000 đ</div>
-                                </div>
-                            </div>
-                            <div class="menu_item">
-                                <div class="menu_item_image">
-                                    <a>
-                                        <img class=" lazyloaded"
-                                             src="https://product.hstatic.net/1000075078/product/1665655318_hi-tea-quyt_815bf4bbd3214e828212efcb8afa4cf3.jpg"
-                                             alt="hi tea da tuyet yuzu vai">
-                                    </a>
-                                    <ul class="labels">
-                                    </ul>
-                                </div>
-                                <div class="menu_item_info">
-                                    <h3>
-                                        <a title="Hi-Tea Đá Tuyết Yuzu Vải">
-                                            Hi-Tea Đá
-                                            Tuyết Yuzu Vải
-                                        </a>
-                                    </h3>
-                                    <div class="price_product_item">55.000 đ</div>
-                                </div>
-                            </div>
                             <div class="menu_item">
                                 <div class="menu_item_image">
                                     <a>

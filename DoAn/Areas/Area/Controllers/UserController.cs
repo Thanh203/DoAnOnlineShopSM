@@ -24,12 +24,6 @@ namespace DoAn.Areas.Area.Controllers
         {
             return View();
         }
-        [HttpGet]
-        public ActionResult Edit(int id)
-        {
-            var user = new UserDao().ViewDetail(id);
-            return View(user);
-        }
         [HttpPost]
         public ActionResult Create(User user)
         {
@@ -46,6 +40,12 @@ namespace DoAn.Areas.Area.Controllers
                 ModelState.AddModelError("", "Thêm thành công");
             }
             return View("Index");
+        }
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var user = new UserDao().ViewDetail(id);
+            return View(user);
         }
         [HttpPost]
         public ActionResult Edit(User user)

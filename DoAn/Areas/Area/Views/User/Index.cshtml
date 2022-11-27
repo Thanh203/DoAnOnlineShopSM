@@ -52,6 +52,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
+                                @Html.ActionLink("Tạo mới", "Create", new { @class = "btn btn-success" })
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
@@ -67,19 +68,19 @@
                                     <tbody>
                                         @foreach (var item in Model)
                                         {
-                                        <tr id="row_@item.ID">
-                                            <td>
-                                                @Html.ActionLink("Sửa", "Edit", new { id = item.ID }, new { @class = "btn btn-success" }) |
+                                            <tr id="row_@item.ID">
+                                                <td>
+                                                    @Html.ActionLink("Sửa", "Edit", new { id = item.ID }, new { @class = "btn btn-success" }) |
 
-                                                @Html.ActionLink("Xóa", "Delete", new { id = item.ID }, new { @class = "btn btn-danger" })
-                                            </td>
-                                            <td>@item.UserName</td>
-                                            <td>@item.Name</td>
-                                            <td>@item.Email</td>
-                                            <td>@item.Phone</td>
-                                            <td>@item.ModifiedBy</td>
-                                            <td>@item.Status</td>
-                                        </tr>
+                                                    @Html.ActionLink("Xóa", "Delete", new { id = item.ID }, new { @class = "btn btn-danger" })
+                                                </td>
+                                                <td>@item.UserName</td>
+                                                <td>@item.Name</td>
+                                                <td>@item.Email</td>
+                                                <td>@item.Phone</td>
+                                                <td>@item.ModifiedBy</td>
+                                                <td>@item.Status</td>
+                                            </tr>
                                         }
                                     </tbody>
                                 </table>
