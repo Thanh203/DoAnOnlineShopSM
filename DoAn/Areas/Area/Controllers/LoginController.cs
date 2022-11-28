@@ -76,7 +76,6 @@ namespace DoAn.Areas.Area.Controllers
             var dao = new UserDao();
             var encryptedMd5Pass = Encryptor.MD5Hash(user.Password);
             user.Password = encryptedMd5Pass;
-            
             long id = dao.Insert(user);
             if (id > 0)
             {
@@ -90,7 +89,6 @@ namespace DoAn.Areas.Area.Controllers
         }
         public ActionResult Logout()
         {
-
             Session.Remove("UserName");
             Session.Remove("UserID");
             return RedirectToAction("Index", "Home");
