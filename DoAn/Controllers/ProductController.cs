@@ -88,7 +88,7 @@ namespace DoAn.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Category = new SelectList(db.Categories, "IDCate", "NameCate",product.CategoryID);
+            ViewBag.Category = new SelectList(db.ProductCategories, "IDCate", "NameCate",product.CategoryID);
             return View(product);
         }
         [HttpGet]

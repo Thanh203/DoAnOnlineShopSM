@@ -41,7 +41,7 @@
             {
                 
                 <div class="header__navbar-item header__navbar-user">
-                    <img src="https://i.pinimg.com/736x/05/09/94/050994962c61328795f2568b4c51c0ab.jpg" alt="" class="header__navbar-user-img">
+                    <img src="~/Images/avatar.jpg" alt="" class="header__navbar-user-img">
                     <span class="header__navbar-user-name">@Session["UserName"]</span>
 
                     <ul class="header__navbar-user-menu">
@@ -51,11 +51,11 @@
                         <li class="header__navbar-user-item header__navbar-user-item--separate">
                             @if (Session["ModifiedBy"] != null)
                             {
-                                <a href="~/Area/Login/Logout">Đăng xuất</a>
+                                <a href="~/HomeUser/Logout">Đăng xuất</a>
                             }
                             else
                             {
-                                <a>@Html.ActionLink("Đăng xuất", "Logout", "Login")</a>
+                                <a>@Html.ActionLink("Đăng xuất", "Logout", "HomeUser")</a>
                             }
                         </li>
                     </ul>

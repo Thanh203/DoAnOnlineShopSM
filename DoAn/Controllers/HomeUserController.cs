@@ -32,5 +32,11 @@ namespace DoAn.Controllers
             }
             return View(product);
         }
+        public ActionResult Logout()
+        {
+            Session.Remove("UserName");
+            Session.Remove("UserID");
+            return RedirectToAction("Index", "HomeUser");
+        }
     }
 }

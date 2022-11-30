@@ -134,8 +134,6 @@
     <Compile Include="Areas\Area\AreaAreaRegistration.cs" />
     <Compile Include="Areas\Area\Controllers\AdminController.cs" />
     <Compile Include="Areas\Area\Controllers\BaseController.cs" />
-    <Compile Include="Areas\Area\Controllers\CategoryController.cs" />
-    <Compile Include="Areas\Area\Controllers\ContentController.cs" />
     <Compile Include="Areas\Area\Controllers\HomeController.cs" />
     <Compile Include="Areas\Area\Controllers\LoginController.cs" />
     <Compile Include="Areas\Area\Controllers\UserController.cs" />
@@ -150,27 +148,32 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Dao\CategoryDao.cs" />
-    <Compile Include="Models\Dao\ContentDao.cs" />
-    <Compile Include="Models\Dao\ProductCategoryDao.cs" />
     <Compile Include="Models\Dao\UserDao.cs" />
-    <Compile Include="Models\EF\About.cs" />
     <Compile Include="Models\EF\CartItem.cs" />
-    <Compile Include="Models\EF\Category.cs" />
-    <Compile Include="Models\EF\Contact.cs" />
-    <Compile Include="Models\EF\Content.cs" />
-    <Compile Include="Models\EF\ContentTag.cs" />
-    <Compile Include="Models\EF\Feedback.cs" />
-    <Compile Include="Models\EF\Footer.cs" />
-    <Compile Include="Models\EF\Menu.cs" />
-    <Compile Include="Models\EF\MenuType.cs" />
-    <Compile Include="Models\EF\OnlineShopSM.cs" />
-    <Compile Include="Models\EF\Product.cs" />
-    <Compile Include="Models\EF\ProductCategory.cs" />
-    <Compile Include="Models\EF\Slide.cs" />
-    <Compile Include="Models\EF\SystemConfig.cs" />
-    <Compile Include="Models\EF\Tag.cs" />
-    <Compile Include="Models\EF\User.cs" />
+    <Compile Include="Models\EF\OnlineShopSM.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OnlineShopSM.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\OnlineShopSM.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OnlineShopSM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\OnlineShopSM.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OnlineShopSM.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\Product.cs">
+      <DependentUpon>OnlineShopSM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\ProductCategory.cs">
+      <DependentUpon>OnlineShopSM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\User.cs">
+      <DependentUpon>OnlineShopSM.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\LoginModels.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2093,6 +2096,16 @@
     <Content Include="Areas\Area\Views\Admin\Index.cshtml" />
     <Content Include=".vs\slnx.sqlite" />
     <Content Include=".vs\VSWorkspaceState.json" />
+    <Content Include="Models\EF\OnlineShopSM.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OnlineShopSM.edmx</DependentUpon>
+      <LastGenOutput>OnlineShopSM.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\EF\OnlineShopSM.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OnlineShopSM.edmx</DependentUpon>
+      <LastGenOutput>OnlineShopSM.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -2101,6 +2114,13 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Area\Views\Home\Details.cshtml" />
     <Content Include="Areas\Area\Views\Login\Create.cshtml" />
+    <EntityDeploy Include="Models\EF\OnlineShopSM.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>OnlineShopSM.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\EF\OnlineShopSM.edmx.diagram">
+      <DependentUpon>OnlineShopSM.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.6.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.1.js" />
     <Content Include="Scripts\jquery-3.6.1.min.js" />
@@ -2182,6 +2202,9 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\jquery-3.6.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.6.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
